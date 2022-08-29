@@ -8,7 +8,7 @@ import com.tugalsan.api.sql.where.server.*;
 
 public class TS_SQLCountExecutor {
 
-    final public static TS_Log d = TS_Log.of(TS_SQLCountExecutor.class.getSimpleName());
+    final public static TS_Log d = TS_Log.of(TS_SQLCountExecutor.class);
 
     public TS_SQLCountExecutor(TS_SQLConnAnchor anchor, CharSequence tableName) {
         this.anchor = anchor;
