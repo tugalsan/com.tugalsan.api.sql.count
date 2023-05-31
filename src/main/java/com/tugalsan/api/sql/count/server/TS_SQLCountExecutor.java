@@ -1,7 +1,7 @@
 package com.tugalsan.api.sql.count.server;
 
 import com.tugalsan.api.log.server.*;
-import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.tuple.client.*;
 import com.tugalsan.api.sql.conn.server.*;
 import com.tugalsan.api.sql.select.server.*;
 import com.tugalsan.api.sql.where.server.*;
@@ -31,7 +31,7 @@ public class TS_SQLCountExecutor {
     }
 
     public Long run() {
-        TGS_Pack1<Long> pack = new TGS_Pack1();
+        TGS_Tuple1<Long> pack = new TGS_Tuple1();
         TS_SQLSelectStmtUtils.select(anchor, toString(), fillStmt -> {
             if (where != null) {
                 where.fill(fillStmt, 0);
