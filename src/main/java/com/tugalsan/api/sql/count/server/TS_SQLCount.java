@@ -5,6 +5,7 @@ import com.tugalsan.api.sql.conn.server.TS_SQLConnAnchor;
 import com.tugalsan.api.sql.where.server.TS_SQLWhereConditions;
 import com.tugalsan.api.sql.where.server.TS_SQLWhereGroups;
 import com.tugalsan.api.sql.where.server.TS_SQLWhereUtils;
+import com.tugalsan.api.union.client.TGS_UnionExcuse;
 
 public class TS_SQLCount {
 
@@ -13,27 +14,27 @@ public class TS_SQLCount {
     }
     final private TS_SQLCountExecutor executor;
 
-    public long whereGroupAnd(TGS_RunnableType1<TS_SQLWhereGroups> groups) {
+    public TGS_UnionExcuse<Long> whereGroupAnd(TGS_RunnableType1<TS_SQLWhereGroups> groups) {
         executor.where = TS_SQLWhereUtils.where();
         executor.where.groupsAnd(groups);
         return executor.run();
     }
 
-    public long whereGroupOr(TGS_RunnableType1<TS_SQLWhereGroups> groups) {
+    public TGS_UnionExcuse<Long> whereGroupOr(TGS_RunnableType1<TS_SQLWhereGroups> groups) {
         executor.where = TS_SQLWhereUtils.where();
         executor.where.groupsOr(groups);
         return executor.run();
     }
 
-    public long whereConditionAnd(TGS_RunnableType1<TS_SQLWhereConditions> conditions) {
+    public TGS_UnionExcuse<Long> whereConditionAnd(TGS_RunnableType1<TS_SQLWhereConditions> conditions) {
         return whereGroupAnd(where -> where.conditionsAnd(conditions));
     }
 
-    public long whereConditionOr(TGS_RunnableType1<TS_SQLWhereConditions> conditions) {
+    public TGS_UnionExcuse<Long> whereConditionOr(TGS_RunnableType1<TS_SQLWhereConditions> conditions) {
         return whereGroupOr(where -> where.conditionsOr(conditions));
     }
 
-    public long whereConditionNone() {
+    public TGS_UnionExcuse<Long> whereConditionNone() {
         return executor.run();
     }
 }
