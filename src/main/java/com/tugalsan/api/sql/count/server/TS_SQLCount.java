@@ -2,6 +2,7 @@ package com.tugalsan.api.sql.count.server;
 
 import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 import com.tugalsan.api.sql.conn.server.TS_SQLConnAnchor;
+import com.tugalsan.api.sql.where.server.TS_SQLWhere;
 import com.tugalsan.api.sql.where.server.TS_SQLWhereConditions;
 import com.tugalsan.api.sql.where.server.TS_SQLWhereGroups;
 import com.tugalsan.api.sql.where.server.TS_SQLWhereUtils;
@@ -35,6 +36,11 @@ public class TS_SQLCount {
     }
 
     public TGS_UnionExcuse<Long> whereConditionNone() {
+        return executor.run();
+    }
+
+    public TGS_UnionExcuse<Long> where(TS_SQLWhere where) {
+        executor.where = where;
         return executor.run();
     }
 }
