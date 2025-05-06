@@ -21,7 +21,7 @@ public class TS_SQLCountExecutor {
 
     @Override
     public String toString() {
-        var sb = new StringBuilder("SELECT COUNT(*) ").append(" FROM ").append(tableName);
+        var sb = new StringBuilder(anchor.tagSelectAndSpace()).append("COUNT(*) ").append(" FROM ").append(tableName);
         if (where != null) {
             sb.append(" ").append(where);
         }
